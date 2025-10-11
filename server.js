@@ -13,11 +13,7 @@ app.get('/autor', (req, res) => {
     }
 });
 app.get('/tema', (req, res) => {
-    if (req.get('accept') === 'application/json') {
-        res.json({ tema: 'Desenvolvimento de Software' });
-    } else {
-        res.send('<h1>Desenvolvimento de Software</h1><p>Aprendendo a criar APIs com Node.js</p>');
-    }
+        res.json([{ 'id': 1, 'nome': 'Tecnologia' }, { 'id': 2, 'nome': 'Programacao' }]);
 });
 app.post('/tema', (req, res) => {
     const  novoTema  = req.body;
@@ -25,38 +21,41 @@ console.log('novo Tema recebido:', novoTema);
 res.status(201).json({id: 3, nome: novoTema.nome});
 });
 app.put('/tema/:id', (req, res) => {
-    const { id } = req.params;
+    const id = req.params.id;
     const temaAtualizado = req.body;
-    console.log(`Tema com ID ${id} atualizado para:`, temaAtualizado);
-    res.json({ id: parseInt(id), nome: temaAtualizado.nome });
+    console.log(`atualizando o tema com ID ${id}:`, temaAtualizado);
+    res.json({id: parseInt(id), nome: temaAtualizado.nome});
 });
 app.delete('/tema/:id', (req, res) => {
-    const { id } = req.params;
-    console.log(`Tema com ID ${id} deletado`);
-    res.json({ message: `Tema com ID ${id} deletado com sucesso` });
-}); 
+    const id = req.params.id;
+    console.log(`excluindo o tema com ID ${id}`);
+    res.json({message: `Tema com ID ${id} excluido com sucesso`});
+});
 app.get('/tema/:id/categorias', (req, res) => {
     const temaId = req.params.id;
-    res.json({ id: temaId, nome: 'Desenvolvimento de Software', categorias: ['Backend', 'Frontend', 'DevOps'] });
-}); 
+    console.log(`Listando categorias do tema com ID ${temaId}`);
+    res.json([{ id: 1, nome: 'Categoria 1' }, { id: 2, nome: 'Categoria 2' }]);
+});
 app.post('/tema/:id/categorias', (req, res) => {
     const temaId = req.params.id;
     const novaCategoria = req.body;
-    console.log(`Nova categoria para o tema ID ${temaId}:`, novaCategoria);
-    res.status(201).json({ id: 1, nome: novaCategoria.nome });
+    console.log(`Adicionando nova categoria ao tema com ID ${temaId}:`, novaCategoria);
+    res.status(201).json({ id: 3, nome: novaCategoria.nome });
 });
 app.put('/tema/:id/categorias/:catId', (req, res) => {
-    const { id, catId } = req.params;
+    const temaId = req.params.id;
+    const catId = req.params.catId;
     const categoriaAtualizada = req.body;
-    console.log(`Categoria ID ${catId} do tema ID ${id} atualizada para:`, categoriaAtualizada);
-    res.json({ id: parseInt(catId), nome: categoriaAtualizada.nome });
+    console.log(`Atualizando a categoria com ID ${catId} do tema com ID ${temaId}:`, categoriaAtualizada);
+    res.json({id: parseInt(catId), nome: categoriaAtualizada.nome});
 });
 app.delete('/tema/:id/categorias/:catId', (req, res) => {
-    const { id, catId } = req.params;
-    console.log(`Categoria ID ${catId} do tema ID ${id} deletada`);
-    res.json({ message: `Categoria ID ${catId} do tema ID ${id} deletada com sucesso` });
-}); 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+    const temaId = req.params.id;
+    const catId = req.params.catId;
+    console.log(`Excluindo a categoria com ID ${catId} do tema com ID ${temaId}`);
+    res.json({message: `Categoria com ID ${catId} do tema com ID ${temaId} excluida com sucesso`});
+// servidor rodando na porta 3000
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor de gilmar está rodando em http://localhost:${port}`);
+});});
