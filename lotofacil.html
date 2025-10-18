@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lotofácil - Analisador</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/resultados.js" defer></script>
+  <script src="js/analises.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Lotofácil - Últimos Resultados e Estratégias</h1>
+  </header>
+
+  <section id="resultados">
+    <h2>Últimos 10 Jogos</h2>
+    <div id="lista-resultados"></div>
+  </section>
+
+  <section id="analise">
+    <h2>Gerar Jogos com Critérios</h2>
+    <form id="form-analise">
+      <label>Selecionar Critério:
+        <select id="criterio">
+          <option value="frequencia">Maior frequência</option>
+          <option value="probabilidade">Maior probabilidade teórica</option>
+          <option value="pares-impares">Par/Ímpar balanceado</option>
+          <option value="repetidos">Repetição do jogo anterior</option>
+        </select>
+      </label>
+      <button type="button" onclick="gerarJogo()">Gerar Jogo</button>
+    </form>
+    <div id="resultado-jogo"></div>
+  </section>
+</body>
+</html>
