@@ -1,61 +1,42 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
-  color: #222;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
 }
 
-header {
-  background: #0066cc;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-section {
-  padding: 20px;
-}
-
-#lista-resultados .resultado {
-  background: white;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-form {
-  margin-top: 15px;
+h1 {
+    text-align: center;
 }
 
 button {
-  background: #0066cc;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    margin: 6px 3px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 button:hover {
-  background: #004999;
+    background-color: #45a049;
 }
 
-#resultado-jogo {
-  margin-top: 15px;
-  background: #e8f0fe;
-  padding: 10px;
-  border-radius: 5px;
+section {
+    margin-bottom: 15px;
+}
+
+#jogo-sugerido {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#grafico {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    width: 100%;
+    height: 600px;
 }
